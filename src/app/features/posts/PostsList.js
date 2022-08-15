@@ -7,7 +7,7 @@ import { PostAuthor } from './PostAuthor'
 import { TimeAgo } from './TimeAgo'
 import {selectAllPosts, fetchPosts} from './postSlice'
 
-const PostExcerpt = ({ post }) => {
+const PostExcerptInternal = ({ post }) => {
   return (
     <article className="post-excerpt">
       <h3>{post.title}</h3>
@@ -24,6 +24,8 @@ const PostExcerpt = ({ post }) => {
     </article>
   )
 }
+
+const PostExcerpt = React.memo(PostExcerptInternal)
 
 export const PostsList = () => {
   const dispatch = useDispatch()
